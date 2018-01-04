@@ -1,6 +1,8 @@
 var sticker
 
 // turns on for the first time when loading a page
+debugger;
+console.log('hi')
 chrome.runtime.sendMessage({request: "state"}, function(response) {
   if (response.state === "on") {
     turnOn()    
@@ -10,6 +12,7 @@ chrome.runtime.sendMessage({request: "state"}, function(response) {
 // recieves the message after the action button is pressed
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
+    console.log('contentjs onMessage')
     if (request.message === "turn_on") {
       turnOn()      
     } else if (request.message === "turn_off") {
@@ -19,6 +22,7 @@ chrome.runtime.onMessage.addListener(
 )
 
 function turnOn() {
+  console.log('turn on')
   displaySticker()
   document.addEventListener('click', handleClick)
 }
@@ -29,6 +33,7 @@ function turnOff() {
 }
 
 function handleClick(event) {
+  console.log(event)
   if (event.target.className === 'audio') {
       var link = document.createElement('a');
       link.href = 'http://www.linguee.com/mp3/' + event.target.id
