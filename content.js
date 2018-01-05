@@ -32,11 +32,8 @@ function handleClick(event) {
   if (event.target.className === 'audio') {
       var link = document.createElement('a');
       var linkBeginning = /https?:\/\/(www)?.linguee.[^\/]*/g.exec(window.location)[0]
-      console.log(linkBeginning)
-      console.log(event.target.id)
       link.href = linkBeginning + '/mp3/' + event.target.id
       link.download = sanitizeFilename(event.target.previousElementSibling.innerText) // the word beside the audio icon
-      console.log(link.href)
 
       //Dispatching click event.
       if (document.createEvent) {
@@ -50,7 +47,7 @@ function handleClick(event) {
 
 function displaySticker() {
   sticker = document.createElement('div')
-  sticker.innerHTML = 'click any 🔊  to download'
+  sticker.innerHTML = 'click any 🔊  &nbsp;to download'
   sticker.style.position = 'fixed'
   sticker.style.top = '5px'
   sticker.style.right = '5px'
