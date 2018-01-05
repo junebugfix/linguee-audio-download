@@ -12,7 +12,10 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.linguee.com/*"
+        "https://www.linguee.*",
+        "http://www.linguee.*",
+        "https://linguee.*",
+        "http://linguee.*"
       ],
       "js": ["content.js"],
       "run_at": "document_end"
