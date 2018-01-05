@@ -11,11 +11,9 @@
   "version": "1.0.0.1",
   "content_scripts": [
     {
-      "matches": [
-        "https://www.linguee.*",
-        "http://www.linguee.*",
-        "https://linguee.*",
-        "http://linguee.*"
+      "matches": [ "*://*/*" ],
+      "include_globs": [
+        "*://*.linguee.*/*"
       ],
       "js": ["content.js"],
       "run_at": "document_end"
