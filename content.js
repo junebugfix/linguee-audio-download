@@ -33,7 +33,8 @@ function handleClick(event) {
       var link = document.createElement('a');
       var linkBeginning = /https?:\/\/(www)?.linguee.[^\/]*/g.exec(window.location)[0]
       link.href = linkBeginning + '/mp3/' + event.target.id
-      link.download = sanitizeFilename(event.target.previousElementSibling.innerText) // the word beside the audio icon
+      var word = event.target.parentElement.querySelectorAll('.dictLink')[0].innerText
+      link.download = sanitizeFilename(word)
 
       //Dispatching click event.
       if (document.createEvent) {
